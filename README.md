@@ -4,6 +4,9 @@ Easily type Bangla on website with word suggestion
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/ohidurbappy/quick-bangla-typing/blob/master/LICENSE)
 [![GitHub All Releases](https://img.shields.io/github/downloads/atom/atom/total.svg)](https://github.com/ohidurbappy/quick-bangla-typing)
 
+
+[![Twitter Follow](https://img.shields.io/twitter/follow/espadrine.svg?label=Follow&style=social)](http://twiteer.com/ohidurbappy)
+
 Live Version:
 http://www.bappy.cf/apps/qbn
 
