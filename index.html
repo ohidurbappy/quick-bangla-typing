@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quick Bangla Typing</title>
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" type="text/css" href="../../assets/css/w3.css"/>
+	<link rel="stylesheet" type="text/css" href="../../assets/css/orb-color.css"/>
+	<script type="text/javascript" src="../../assets/js/jquery.js"></script>
+	<script type="text/javascript" src="quick.jquery.bangla.js"></script>
+
+</head>
+<body>
+	<div class="orb-grey-l5 w3-padding" style="min-height: 100px;">
+		<h1 class="w3-padding w3-text-indigo">Quick Bangla Typing</h1>
+		<div class="w3-padding w3-text-indigo">Type Bangla online with phonetics</div>
+	</div>
+
+
+	<div class="w3-bar w3-indigo">
+		<a href="../../" class="w3-bar-item w3-button w3-hover-teal">Home</a>
+		<a href="../gbn/" class="w3-bar-item w3-button w3-hover-teal">Google Input</a>
+		<a href="http://www.facebook.com/ohidurbappy" class="w3-bar-item w3-button w3-hover-teal">Facebook</a>
+		<a href="http://github.com/ohidurbappy" class="w3-bar-item w3-button w3-hover-teal">Github</a>
+	</div>
+
+
+	<div class="w3-row">
+		<div class="orb-grey-l5 w3-display-container" style="min-height: 400px;">
+
+			<div class="w3-display-middle w3-card">
+				<div class="w3-padding w3-light-grey w3-text-dark-grey">
+					Type in Bangla (Press Ctrl+m to toggle between English and Bangla)
+				</div>
+				<textarea id="input_area" class="w3-mobile w3-border-0 w3-padding" style="width:650px;height:280px;max-width: 100%;max-height: 100%;outline-width: 0;" placeholder="Start typing...."></textarea>
+				<div class="w3-padding" id="mode">বাংলা</div>
+				<div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="w3-row w3-center" style="min-height:120px;">
+		<div class="w3-light-grey w3-padding-32">
+			<h4>Thank You</h4>
+
+		</div>
+	</div>
+
+
+
+	<script>
+
+
+    $('#input_area').bangla();
+    $('#input_area').bangla('enable',true); // enable bangla typing
+
+    // get the input-tool object
+    console.log($('#input-area').bangla('tool'));
+    console.log($('#text-area').bangla('enable'));
+  </script>
+
+</body>
+</html>
