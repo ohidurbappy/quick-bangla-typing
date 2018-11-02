@@ -5,6 +5,7 @@ Easily type Bangla on website with word suggestion
 Live Version:
 http://www.bappy.cf/apps/qbn
 
+<img src="screenshot.png"/>
 
 
 It is a modified version of jquery.bangla
