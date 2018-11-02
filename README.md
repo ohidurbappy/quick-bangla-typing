@@ -1,6 +1,7 @@
 # quick-bangla-typing
 Easily type Bangla on website with word suggestion
 
+[![License](https://img.shields.io/npm/l/jquery.bangla.svg)](https://github.com/ohidurbappy/quick-bangla-typing/blob/master/LICENSE)
 
 Live Version:
 http://www.bappy.cf/apps/qbn
