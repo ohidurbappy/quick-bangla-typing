@@ -1,7 +1,8 @@
 # quick-bangla-typing
 Easily type Bangla on website with word suggestion
 
-[![License]()](https://github.com/ohidurbappy/quick-bangla-typing/blob/master/LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/ohidurbappy/quick-bangla-typing/blob/master/LICENSE)
+[![GitHub All Releases](https://img.shields.io/github/downloads/atom/atom/total.svg)](https://github.com/ohidurbappy/quick-bangla-typing)
 
 Live Version:
 http://www.bappy.cf/apps/qbn
