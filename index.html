@@ -4,52 +4,62 @@
 	<title>Quick Bangla Typing</title>
 	<meta charset="utf-8">
 	<meta name="description" content="Easily Type bangla without any software">
-  	<meta name="keywords" content="Bangla Typing,Avro,Bangla phonetics, Bangla Input Method">
-  	<meta name="author" content="Ohidur Rahman Bappy">
-  	<meta name="copyright" content="Ohidur Rahman Bappy" />
-  	<meta name="robots" content="follow"/>
-  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="../../assets/css/w3.css"/>
-	<link rel="stylesheet" type="text/css" href="../../assets/css/orb-color.css"/>
-	<script type="text/javascript" src="../../assets/js/jquery.js"></script>
+	<meta name="keywords" content="Bangla Typing,Avro,Bangla phonetics, Bangla Input Method">
+	<meta name="author" content="Ohidur Rahman Bappy">
+	<meta name="copyright" content="Ohidur Rahman Bappy" />
+	<meta name="robots" content="follow"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="manifest" href="manifest.json">
+	<link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css"/>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script type="text/javascript" src="quick.jquery.bangla.js"></script>
 
 </head>
 <body>
-	<div class="orb-grey-l5 w3-padding" style="min-height: 100px;">
-		<h1 class="w3-padding w3-text-indigo">Quick Bangla Typing</h1>
-		<div class="w3-padding w3-text-indigo">Type Bangla online with phonetics by <b>Ohidur Rahman Bappy</b></div>
+	<div id="mySidebar" class="sidebar">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<div id="history"></div>
 	</div>
 
-
-	<div class="w3-bar w3-indigo">
-		<a href="../../" class="w3-bar-item w3-button w3-hover-teal">Home</a>
-		<a href="../gbn/" class="w3-bar-item w3-button w3-hover-teal">Google Input</a>
-		<a href="http://www.facebook.com/ohidurbappy" class="w3-bar-item w3-button w3-hover-teal">Facebook</a>
-		<a href="http://github.com/ohidurbappy" class="w3-bar-item w3-button w3-hover-teal">Github</a>
-	</div>
-
-
-	<div class="w3-row">
-		<div class="orb-grey-l5 w3-display-container" style="min-height: 400px;">
-
-			<div class="w3-display-middle w3-card">
-				<div class="w3-padding w3-light-grey w3-text-dark-grey">
-					Type in Bangla (Press Ctrl+m to toggle between English and Bangla)
-				</div>
-				<textarea id="input_area" class="w3-mobile w3-border-0 w3-padding" style="width:650px;height:280px;max-width: 100%;max-height: 100%;outline-width: 0;" placeholder="Start typing...."></textarea>
-				<div class="w3-padding" id="mode">বাংলা</div>
-				<div>
-				</div>
-			</div>
-
+	<div id="main">
+		<button class="openbtn" onclick="openNav()">&#9776; Open History</button>
+		<div class="orb-grey-l5 w3-padding" style="min-height: 100px;">
+			<h1 class="w3-padding w3-text-indigo">Quick Bangla Typing</h1>
+			<button id="install-button" class="w3-button w3-teal" style="display: none; margin-left: 15px;">Install</button>
+			<div class="w3-padding w3-text-indigo">Type Bangla online with phonetics by <b>Ohidur Rahman Bappy</b></div>
 		</div>
-	</div>
 
-	<div class="w3-row w3-center" style="min-height:120px;">
-		<div class="w3-light-grey w3-padding-32">
-			<h4>Thank You</h4>
 
+		<div class="w3-bar w3-indigo">
+			<a href="../../" class="w3-bar-item w3-button w3-hover-teal">Home</a>
+			<a href="../gbn/" class="w3-bar-item w3-button w3-hover-teal">Google Input</a>
+			<a href="http://www.facebook.com/ohidurbappy" class="w3-bar-item w3-button w3-hover-teal">Facebook</a>
+			<a href="http://github.com/ohidurbappy" class="w3-bar-item w3-button w3-hover-teal">Github</a>
+		</div>
+
+
+		<div class="w3-row">
+			<div class="orb-grey-l5 w3-display-container" style="min-height: 400px;">
+
+				<div class="w3-display-middle w3-card">
+					<div class="w3-padding w3-light-grey w3-text-dark-grey">
+						Type in Bangla (Press Ctrl+m to toggle between English and Bangla)
+					</div>
+					<textarea id="input_area" class="w3-mobile w3-border-0 w3-padding" style="width:650px;height:280px;max-width: 100%;max-height: 100%;outline-width: 0;" placeholder="Start typing...."></textarea>
+					<div class="w3-padding" id="mode">বাংলা</div>
+					<div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="w3-row w3-center" style="min-height:120px;">
+			<div class="w3-light-grey w3-padding-32">
+				<h4>Thank You</h4>
+
+			</div>
 		</div>
 	</div>
 
@@ -66,5 +76,93 @@
     console.log($('#text-area').bangla('enable'));
   </script>
 
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').then(registration => {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, err => {
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+  </script>
+  <script>
+    let deferredPrompt;
+    const installButton = document.getElementById('install-button');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      // Prevent Chrome 67 and earlier from automatically showing the prompt
+      e.preventDefault();
+      // Stash the event so it can be triggered later.
+      deferredPrompt = e;
+      // Update UI to notify the user they can add to home screen
+      installButton.style.display = 'block';
+    });
+
+    installButton.addEventListener('click', (e) => {
+      // hide our user interface that shows our A2HS button
+      installButton.style.display = 'none';
+      // Show the prompt
+      deferredPrompt.prompt();
+      // Wait for the user to respond to the prompt
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted the A2HS prompt');
+        } else {
+          console.log('User dismissed the A2HS prompt');
+        }
+        deferredPrompt = null;
+      });
+    });
+  </script>
+  <script>
+	function openNav() {
+	  document.getElementById("mySidebar").style.width = "250px";
+	  document.getElementById("main").style.marginLeft = "250px";
+	}
+
+	function closeNav() {
+	  document.getElementById("mySidebar").style.width = "0";
+	  document.getElementById("main").style.marginLeft= "0";
+	}
+
+	const historyContainer = document.getElementById('history');
+	const editor = document.getElementById('input_area');
+	let history = JSON.parse(localStorage.getItem('bangla-history')) || [];
+
+	function renderHistory() {
+		historyContainer.innerHTML = '';
+		history.forEach((entry, index) => {
+			const div = document.createElement('div');
+			div.innerHTML = `<a href="#" data-index="${index}">${entry.substring(0, 20)}...</a>`;
+			historyContainer.appendChild(div);
+		});
+	}
+
+	function saveHistory() {
+		const content = editor.value;
+		if (content) {
+			history.unshift(content);
+			if (history.length > 10) {
+				history.pop();
+			}
+			localStorage.setItem('bangla-history', JSON.stringify(history));
+			renderHistory();
+		}
+	}
+
+	editor.addEventListener('keyup', saveHistory);
+
+	historyContainer.addEventListener('click', (e) => {
+		if (e.target.tagName === 'A') {
+			const index = e.target.dataset.index;
+			editor.value = history[index];
+			closeNav();
+		}
+	});
+
+	renderHistory();
+  </script>
 </body>
 </html>
