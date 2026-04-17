@@ -5,9 +5,6 @@ Easily type Bangla on website with word suggestion
 [![GitHub All Releases](https://img.shields.io/github/downloads/atom/atom/total.svg)](https://github.com/ohidurbappy/quick-bangla-typing)
 [![Twitter Follow](https://img.shields.io/twitter/follow/espadrine.svg?label=Follow&style=social)](https://twitter.com/ohidurbappy)
 
-Live Version:
-http://www.bappy.cf/apps/qbn
-
 <img src="screenshot.png"/>
 
 
